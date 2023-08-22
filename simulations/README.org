@@ -1,0 +1,37 @@
+#+Title: Stochastic sampling Bayesian optimization
+
+* Installation
+  #+BEGIN_SRC bash
+  python3 -m venv venv
+  source venv/bin/activate
+
+  pip install numpy scipy attrs pandas GPy
+  #+END_SRC
+  
+* python modules
+  - running simulations
+    - ~run~: run the main simulations. E.g. ~python run.py output/stochastic-sequential-d2 ackley sbucb~
+    - ~run_lac_mut~: run the /lac/ simulations ~python run_lac_mut.py output/lac-crp1-sequential sbucb~
+  - support
+    - ~optimizer~: top level module for running SSBO algorithms,
+      coordinates other components
+    - ~modeler~: builds GP models for analysis, converting to uniform scale
+    - ~objective~: defines simulation objective functions
+    - ~distribution~: used for defining sampling distributions
+    - ~aquisition~: defines different acquisition functions
+    - ~parameter~: define parameter spaces
+    - ~plot~: plotting utilities used during simulation
+    - ~aggregate~: used for aggregating and analysing the output of
+      simulation runs
+     
+* notebooks
+  A number of notebooks are provided that we used to generate figures
+  from this paper:
+  - [[file:performance.ipynb][performances]]: analyzes output of simulations and generates figures
+  - [[file:figures.ipynb][figures]]: generate example figures
+  - [[file:lac-promoter.ipynb][lac-promoter]]: some precursor analysis of /lac/ promoter simulation data
+  - [[file:two-armed-bandit.ipynb][two-armed-bandit]]: code to generate two armed bandit example figures
+     
+* output
+  The ~output~ folder contains the results of running the ~run.py~ and
+  ~run_lac_mut.py~ scripts.
